@@ -13,7 +13,9 @@ pip install mlxtend
 
 ## Training
 Download the dataset (e.g., [TotalCapture](https://cvssp.org/data/totalcapture/)).
+
 The acceleration, gyro, and orientation of the IMUs are extracted and reshaped into (#IMUs, #frames, dimensions).
+
 Afterwards, set the --dataset argument to the data path.
 
 Train the I2S assignment model.
