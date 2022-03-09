@@ -19,7 +19,7 @@ class TotalCapture():
     Labels =['Head','Sternum','Pelvis','L_UpArm','R_UpArm',\
         'L_LowArm','R_LowArm','L_UpLeg','R_UpLeg','L_LowLeg',\
         'R_LowLeg','L_Foot','R_Foot']
-    DATASET_ROOT_PATH = "../data/TotalCapture/global/"
+    DATASET_ROOT_PATH = FLAGS.datapath
     ObjectCategories = len(Labels)
     SymmeLabels = ['Head','Sternum','Pelvis','UpArm','LowArm',\
         'UpLeg','LowLeg','Foot']
@@ -80,9 +80,9 @@ class TotalCapture():
 
 class CMU_MoCap():
     Labels = ["head","thorax","lowerback","lhumerus","rhumerus",
-              "lradius","rradius","lwrist","rwrist","lfemur","rfemur",
-              "ltibia","rtibia","lfoot","rfoot"]
-    DATASET_ROOT_PATH = "../data/CMU_MoCap/data/global/"
+              "lradius","rradius","lwrist","rwrist","lfemur",
+              "rfemur","ltibia","rtibia","lfoot","rfoot"]
+    DATASET_ROOT_PATH = FLAGS.datapath
     ObjectCategories = len(Labels)
     window_size = 240
     window_interval = 30
