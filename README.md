@@ -18,7 +18,7 @@ Afterwards, set the --dataset argument to the dataset name (TotalCature or CMU_M
 
 Train the I2S assignment model.
 ```
-python train.py --log_dir ./logs --dataset TotalCapture --datapath ./data/TotalCapture
+python train.py --log_dir ./logs --dataset TotalCapture --datapath ./data/TotalCapture/global
 ```
 
 ## Evaluation
