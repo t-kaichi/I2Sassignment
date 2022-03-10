@@ -12,22 +12,14 @@ def set_seed():
 def reset_tf(gpu_id=0):
     # Setup tf
     import tensorflow as tf
-    if tf.__version__ >= "2.1.0":
-        physical_devices = tf.config.list_physical_devices('GPU')
-        tf.config.list_physical_devices('GPU')
-        tf.config.set_visible_devices(physical_devices[gpu_id], 'GPU')
-        tf.config.experimental.set_memory_growth(physical_devices[gpu_id], True)
-        print("set memory growth GPU No.: {}".format(gpu_id))
-    elif tf.__version__ >= "2.0.0":
-        #TF2.0
-        physical_devices = tf.config.experimental.list_physical_devices('GPU')
-        tf.config.experimental.set_visible_devices(physical_devices[gpu_id], 'GPU')
-        tf.config.experimental.set_memory_growth(physical_devices[gpu_id], True)
-        physical_devices = tf.config.list_physical_devices('GPU')
-        print("set memory growth GPU No.: {}".format(gpu_id))
-    else:
-        raise NotImplementedError("fill out process for TensorFlow ver. {}".format(tf.__version__))
-        
+    physical_devices = tf.config.list_physical_devices('GPU')
+    if len(physical_devices) < 1:
+        print("trained with CPU")
+        return 0
+    tf.config.list_physical_devices('GPU')
+    tf.config.set_visible_devices(physical_devices[gpu_id], 'GPU')
+    tf.config.experimental.set_memory_growth(physical_devices[gpu_id], True)
+    print("set memory growth GPU No.: {}".format(gpu_id))
     return 0 
 
 def imshow(title, img):
