@@ -19,7 +19,6 @@ class TotalCapture():
     Labels =['Head','Sternum','Pelvis','L_UpArm','R_UpArm',\
         'L_LowArm','R_LowArm','L_UpLeg','R_UpLeg','L_LowLeg',\
         'R_LowLeg','L_Foot','R_Foot']
-    DATASET_ROOT_PATH = FLAGS.datapath
     ObjectCategories = len(Labels)
     SymmeLabels = ['Head','Sternum','Pelvis','UpArm','LowArm',\
         'UpLeg','LowLeg','Foot']
@@ -28,6 +27,7 @@ class TotalCapture():
     ignore_frames = 240 # remove T-pose frames
     
     def __init__(self, root=None, used_imus=list(range(13)), label_imus=list(range(13))):
+        self.DATASET_ROOT_PATH = FLAGS.datapath
         self.used_imus = copy.deepcopy(used_imus)
         self.label_imus = copy.deepcopy(label_imus)
         self.nb_classes = len(set(label_imus))
@@ -82,13 +82,13 @@ class CMU_MoCap():
     Labels = ["head","thorax","lowerback","lhumerus","rhumerus",
               "lradius","rradius","lwrist","rwrist","lfemur",
               "rfemur","ltibia","rtibia","lfoot","rfoot"]
-    DATASET_ROOT_PATH = FLAGS.datapath
     ObjectCategories = len(Labels)
     window_size = 240
     window_interval = 30
     ignore_frames = 1
     
     def __init__(self, root=None, used_imus=list(range(13)), label_imus=list(range(13))):
+        self.DATASET_ROOT_PATH = FLAGS.datapath
         self.used_imus = copy.deepcopy(used_imus)
         self.label_imus = copy.deepcopy(label_imus)
         self.nb_classes = len(set(label_imus))
