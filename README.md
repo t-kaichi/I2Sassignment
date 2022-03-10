@@ -6,19 +6,19 @@ The official implementation of [`Learning Sensor Interdependencies for IMU-to-Se
 - TensorFlow >= 2.4
 
 This code has been developed with Docker container created from `nvcr.io/nvidia/tensorflow:21.03-tf2-py3`.  
-In addition, `mlxtend` is used to evaluate the trained model in our implementation.
+See `requirements.txt` for additional dependencies and version requirements.
 ```
-pip install mlxtend
+pip install -r requirements.txt
 ```
 
 ## Training
 Download the dataset (e.g., [TotalCapture](https://cvssp.org/data/totalcapture/)).  
 The acceleration, gyro, and orientation of the IMUs are extracted and reshaped into (#IMUs, #frames, dimensions).  
-Afterwards, set the --dataset argument to the data path.
+Afterwards, set the --dataset argument to the dataset name (TotalCature or CMU_MoCap) and --datapath argument to the dataset path.
 
 Train the I2S assignment model.
 ```
-python train.py --log_dir ./logs --dataset ./data
+python train.py --log_dir ./logs --dataset TotalCapture --datapath ./data/TotalCapture/global
 ```
 
 ## Evaluation
