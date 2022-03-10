@@ -9,10 +9,10 @@ from models import (build_transformer_model, build_pointnet_model,
                     build_pointnet_transformer_model)
 from utils import reset_tf, set_seed, imshow
 from IMUsSequence import TotalCapture, CMU_MoCap, IMUsSequence
-
 import myFlags
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 FLAGS = flags.FLAGS
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 def main(argv):
     reset_tf(FLAGS.device)
